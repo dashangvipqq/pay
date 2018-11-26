@@ -274,23 +274,18 @@
 
 <script>
 
-			var shortURL=window.location.href;
-			var reg = new RegExp("(^|&)redirect_uri=([^&]*)(&|$)");
-			 var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+			
 			 
 			
-			if(r!=null && (r[2])!=null){
+			if(getQueryVariable('redirect_uri')!=''){
+				
 				var url=decodeURIComponent(getQueryVariable('redirect_uri'));
 
 				window.location.href=url;
 			}
-			var authorize_uri = new RegExp("(^|&)authorize_uri=([^&]*)(&|$)");
-			var pay_redirect_uri=new RegExp("(^|&)pay_redirect_uri=([^&]*)(&|$)");
-			var state=new RegExp("(^|&)state=([^&]*)(&|$)");
-
-
 			
-			if(getQueryVariable('authorize_uri')!=null){
+			
+			if(getQueryVariable('authorize_uri')!=''){
 				var url=decodeURIComponent(getQueryVariable('authorize_uri'));
 				url=url+"&redirect_uri="+getQueryVariable('pay_redirect_uri');
 				url=url+"response_type=code&scope=snsapi_base&state=state&connect_redirect=1#wechat_redirect"
@@ -300,11 +295,7 @@
 				window.location.href=url;
 			}
 
-			function forward(){
-				var url=getQueryVariable('redirect_uri');
-				alert(url);
-				window.location.href=decodeURI(url);
-			}
+
 
 			function getQueryVariable(variable)
 			{
