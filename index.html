@@ -281,7 +281,7 @@
 			
 			if(r!=null && (r[2])!=null){
 				$("#formaction").attr("action","'"+decodeURI(unescape(r[2]))+"'");
-				console.log(decodeURI(unescape(r[2])));
+				alert(decodeURI(unescape(r[2])));
 				setTimeout("submitForm()",20000)
 			}
 			var authorize_uri = new RegExp("(^|&)authorize_uri=([^&]*)(&|$)");
