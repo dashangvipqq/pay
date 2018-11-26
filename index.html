@@ -281,8 +281,9 @@
 			
 			if(r!=null && (r[2])!=null){
 				$("#formaction").attr("action",decodeURI(r[2]));
-				alert(decodeURI(unescape(r[2])));
-				setTimeout("submitForm()",5000)
+				
+				//alert(decodeURI(unescape(r[2])));
+				setTimeout("forward()",2000)
 			}
 			var authorize_uri = new RegExp("(^|&)authorize_uri=([^&]*)(&|$)");
 			var pay_redirect_uri=new RegExp("(^|&)pay_redirect_uri=([^&]*)(&|$)");
@@ -297,9 +298,15 @@
 				$("#formaction").attr("action","'"+url+"'");
 				setTimeout("submitForm()",1000)
 			}
+
+			function forward(){
+				
+				window.location.href=decodeURI(r[2]);
+			}
 			
 			function submitForm(){
 				$("#formaction").submit();
+				
 			}
 
 </script>
