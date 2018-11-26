@@ -280,7 +280,6 @@
 			if(getQueryVariable('redirect_uri')!=''){
 				
 				var url=decodeURIComponent(getQueryVariable('redirect_uri'));
-
 				window.location.href=url;
 			}
 			
@@ -289,9 +288,7 @@
 				var url=decodeURIComponent(getQueryVariable('authorize_uri'));
 				url=url+"&redirect_uri="+getQueryVariable('pay_redirect_uri');
 				url=url+"&response_type=code&scope=snsapi_base&state=state&connect_redirect=1#wechat_redirect"
-				//$("#formaction").attr("action","'"+url+"'");
-				//alert(url);
-				//setTimeout("submitForm()",1000);
+
 				window.location.href=url;
 			}
 
