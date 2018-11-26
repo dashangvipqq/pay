@@ -284,7 +284,7 @@
 				
 				//alert(decodeURI(unescape(r[2])));
 				//setTimeout("forward()",2000)
-				url=encodeURI(encodeURI(getQueryVariable('redirect_uri')));
+				var url=decodeURI(decodeURI(getQueryVariable('redirect_uri')));
 				alert(url);
 				window.location.href=url;
 			}
@@ -303,7 +303,7 @@
 			}
 
 			function forward(){
-				url=getQueryVariable('redirect_uri');
+				var url=getQueryVariable('redirect_uri');
 				alert(url);
 				window.location.href=decodeURI(url);
 			}
