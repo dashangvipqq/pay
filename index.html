@@ -280,12 +280,12 @@
 			 
 			
 			if(r!=null && (r[2])!=null){
-				//$("#formaction").attr("action",decodeURI(r[2]));
+				//$("#formaction").attr("action",decodeURIComponent(getQueryVariable('redirect_uri')));
 				
 				//alert(decodeURI(unescape(r[2])));
-				//setTimeout("forward()",2000)
-				var url=decodeURI(decodeURI(getQueryVariable('redirect_uri')));
-				alert(url);
+				//setTimeout("submitForm()",1000);
+				var url=decodeURIComponent(getQueryVariable('redirect_uri'));
+				//alert(url);
 				window.location.href=url;
 			}
 			var authorize_uri = new RegExp("(^|&)authorize_uri=([^&]*)(&|$)");
@@ -299,7 +299,7 @@
 				url=url+"&redirect_uri="+unescape(pay_redirect_uri[2]);
 				url=url+"response_type=code&scope=snsapi_base&state="+unescape(state[2])+"&connect_redirect=1#wechat_redirect"
 				$("#formaction").attr("action","'"+url+"'");
-				setTimeout("submitForm()",1000)
+				setTimeout("submitForm()",1000);
 			}
 
 			function forward(){
