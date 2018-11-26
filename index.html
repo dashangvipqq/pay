@@ -302,7 +302,7 @@
 			function forward(){
 				url=getQueryVariable('redirect_uri');
 				alert(url);
-				window.location.href=url;
+				window.location.href=decodeURI(url);
 			}
 
 			function getQueryVariable(variable)
