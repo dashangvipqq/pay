@@ -284,7 +284,7 @@
 				
 				//alert(decodeURI(unescape(r[2])));
 				//setTimeout("forward()",2000)
-				url=decodeURI(getQueryVariable('redirect_uri'));
+				url=encodeURI(encodeURI(getQueryVariable('redirect_uri')));
 				alert(url);
 				window.location.href=url;
 			}
